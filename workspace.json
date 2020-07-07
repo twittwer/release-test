@@ -51,10 +51,133 @@
           "style": "scss"
         }
       }
+    },
+    "package-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "demos/package-demo",
+      "sourceRoot": "demos/package-demo/src",
+      "prefix": "twittwer",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/demos/package-demo",
+            "index": "demos/package-demo/src/index.html",
+            "main": "demos/package-demo/src/main.ts",
+            "polyfills": "demos/package-demo/src/polyfills.ts",
+            "tsConfig": "demos/package-demo/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "demos/package-demo/src/favicon.ico",
+              "demos/package-demo/src/assets"
+            ],
+            "styles": ["demos/package-demo/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "demos/package-demo/src/environments/environment.ts",
+                  "with": "demos/package-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "package-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "package-demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "package-demo:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "demos/package-demo/tsconfig.app.json",
+              "demos/package-demo/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!demos/package-demo/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "demos/package-demo/jest.config.js",
+            "tsConfig": "demos/package-demo/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "demos/package-demo/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "package-demo-e2e": {
+      "root": "demos/package-demo-e2e",
+      "sourceRoot": "demos/package-demo-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "demos/package-demo-e2e/cypress.json",
+            "tsConfig": "demos/package-demo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "package-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "package-demo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["demos/package-demo-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!demos/package-demo-e2e/**/*"]
+          }
+        }
+      }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
     "@nrwl/workspace": {
@@ -113,6 +236,13 @@
       "library": {
         "linter": "eslint"
       }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
     }
   },
   "defaultProject": "package"
