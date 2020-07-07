@@ -1,7 +1,11 @@
 {
-  "npmScope": "release-test",
+  "npmScope": "twittwer",
   "affected": {
     "defaultBase": "master"
+  },
+  "workspaceLayout": {
+    "appsDir": "demos",
+    "libsDir": "packages"
   },
   "implicitDependencies": {
     "workspace.json": "*",
@@ -21,9 +25,5 @@
       }
     }
   },
-  "projects": {},
-  "workspaceLayout": {
-    "appsDir": "packages",
-    "libsDir": "packages"
-  }
+  "projects": {}
 }
