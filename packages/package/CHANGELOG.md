@@ -1,3 +1,13 @@
+## [1.0.1](https://github.com/twittwer/release-test/compare/package/v1.0.0...package/v1.0.1) (2020-07-07)
+
+### Code Refactoring
+
+- **package:** add forRoot ([eeb0066](https://github.com/twittwer/release-test/commit/eeb0066b7e7fe540edafc402627cf45c51baf9c5))
+
+### BREAKING CHANGES
+
+- **package:** import has to call forRoot
+
 # 1.0.0 (2020-07-07)
 
 ### Features
