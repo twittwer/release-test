@@ -6,4 +6,5 @@ import { CommonModule } from '@angular/common';
 })
 export class PackageModule {
   forRoot() {}
+  forFeature() {}
 }
