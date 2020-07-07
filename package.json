@@ -23,7 +23,9 @@
     "update": "nx migrate latest",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "prerelease": "nx affected:build --all",
+    "release": "nx affected --target release --all"
   },
   "private": true,
   "dependencies": {
