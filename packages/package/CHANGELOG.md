@@ -1,3 +1,9 @@
+## [2.0.1](https://github.com/twittwer/release-test/compare/package/v2.0.0...package/v2.0.1) (2020-07-07)
+
+### Bug Fixes
+
+- release ([937583a](https://github.com/twittwer/release-test/commit/937583a00a996157aa79056cf52ab88d2d6329ca))
+
 # [2.0.0](https://github.com/twittwer/release-test/compare/package/v1.0.1...package/v2.0.0) (2020-07-07)
 
 ### Bug Fixes
