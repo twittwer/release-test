@@ -1,3 +1,9 @@
+## [2.0.2](https://github.com/twittwer/release-test/compare/package/v2.0.1...package/v2.0.2) (2020-07-07)
+
+### Bug Fixes
+
+- disable github assets ([a83f7fb](https://github.com/twittwer/release-test/commit/a83f7fb5bbb87c2349703d7f860d9c644ff96964))
+
 ## [2.0.1](https://github.com/twittwer/release-test/compare/package/v2.0.0...package/v2.0.1) (2020-07-07)
 
 ### Bug Fixes
