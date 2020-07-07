@@ -1,6 +1,51 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "package": {
+      "projectType": "library",
+      "root": "packages/package",
+      "sourceRoot": "packages/package/src",
+      "prefix": "twittwer",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "packages/package/tsconfig.lib.json",
+            "project": "packages/package/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "packages/package/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "packages/package/tsconfig.lib.json",
+              "packages/package/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!packages/package/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/package/jest.config.js",
+            "tsConfig": "packages/package/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "packages/package/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   },
@@ -62,5 +107,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "defaultProject": "package"
 }
