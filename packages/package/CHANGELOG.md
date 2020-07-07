@@ -1,3 +1,19 @@
+# [2.0.0](https://github.com/twittwer/release-test/compare/package/v1.0.1...package/v2.0.0) (2020-07-07)
+
+### Bug Fixes
+
+- **package:** add forRoot ([b371cae](https://github.com/twittwer/release-test/commit/b371caeecd2b1ab8e0ed3e42cff05b3d748046fa))
+- **package:** release process ([aa46828](https://github.com/twittwer/release-test/commit/aa46828eab21509d5d5ce75c4aee57e8c4255435))
+- config ([06e62d9](https://github.com/twittwer/release-test/commit/06e62d910b192cde1999dcc209fd032a34ac7fd5))
+
+### Chores
+
+- temp ([c9b4783](https://github.com/twittwer/release-test/commit/c9b47836f6c9f09355789eed29065dfea7257c46)), closes [#5](https://github.com/twittwer/release-test/issues/5)
+
+### BREAKING CHANGES
+
+- **package:** import has to call forRoot
+
 ## [1.0.1](https://github.com/twittwer/release-test/compare/package/v1.0.0...package/v1.0.1) (2020-07-07)
 
 ### Code Refactoring
