@@ -43,6 +43,11 @@
           "options": {
             "commands": ["npx semantic-release"],
             "cwd": "packages/package"
+          },
+          "configurations": {
+            "local": {
+              "commands": ["npx semantic-release --no-ci"]
+            }
           }
         }
       },
