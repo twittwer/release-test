@@ -10,10 +10,10 @@ module.exports = {
         // Patch
         'fix',
         'build',
-        'docs',
         'refactor',
         'perf',
         // None
+        'docs',
         'chore',
         'ci',
         'test',

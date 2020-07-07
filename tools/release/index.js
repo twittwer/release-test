@@ -43,13 +43,13 @@ function createReleaseConfigWithScopeFilter({
           preset: 'angular',
           releaseRules: createReleaseRulesWithScopeFilter(projectScope),
           parserOpts: {
-            noteKeywords: ['BREAKING'],
+            noteKeywords: ['BREAKING', 'BREAKING CHANGE', 'BREAKING CHANGES'],
           },
         },
       ],
       '@semantic-release/release-notes-generator',
       ['@semantic-release/changelog', { changelogFile }],
-      ['@semantic-release/github', { assets: [{ path: relativeBuildOutput }] }],
+      ['@semantic-release/github', { assets: [{ path: relativeBuildOutput + '/**' }] }],
       // ['@semantic-release/npm', { pkgRoot: relativeBuildOutput }],
       [
         '@semantic-release/exec',

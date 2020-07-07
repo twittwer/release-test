@@ -7,7 +7,7 @@ const removeWildcardScope = (commit) => {
 const isCommitNotAffectingScope = (commit, projectScope) =>
   commit.scope && commit.scope !== projectScope;
 
-const mapToTitleGroup = (commit) => {
+const mapTypeToTitle = (commit) => {
   const commitTypeMapping = {
     feat: 'Features',
     fix: 'Bug Fixes',
@@ -25,9 +25,9 @@ const mapToTitleGroup = (commit) => {
   commit.type = commitTypeMapping[commit.type] || commitTypeMapping['default'];
 };
 
-const checkForBreakingNote = (commit) => {
+const pluralizeBreakingNotesGroup = (commit) => {
   commit.notes.forEach((note) => {
-    if (note.title.toLowerCase().includes('breaking')) {
+    if (note.title.toUpperCase().includes('BREAKING CHANGE')) {
       note.title = `BREAKING CHANGES`;
     }
   });
@@ -39,7 +39,7 @@ const addShortHash = (commit) => {
   }
 };
 
-const addIssueLinksInSubject = (commit, context) => {
+const processIssueLinksInSubject = (commit, context) => {
   if (typeof commit.subject !== `string`) {
     return;
   }
@@ -90,16 +90,11 @@ function createCommitTransformerWithScopeFilter(projectScope) {
       return;
     }
 
-    // console.log(commit);
-
-    mapToTitleGroup(commit);
-    //checkForBreakingNote(commit);
+    mapTypeToTitle(commit);
+    pluralizeBreakingNotesGroup(commit);
     addShortHash(commit);
 
-    const { message, type, scope, subject, body, footer, notes } = commit;
-    console.log({ message, type, scope, subject, body, footer, notes });
-
-    addIssueLinksInSubject(commit, context);
+    processIssueLinksInSubject(commit, context);
     addUserLinksInSubject(commit, context);
 
     return commit;

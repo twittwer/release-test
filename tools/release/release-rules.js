@@ -1,4 +1,12 @@
 const releaseRuleWithScopeFilter = ({ type, release }, projectScope) => [
+  {
+    breaking: true,
+    release: 'major',
+  },
+  {
+    revert: true,
+    release: 'patch',
+  },
   /*
    * ATTENTION: The order of these rules is important.
    * 1. start by defining a release by commit's type ignoring the scope rule
@@ -22,10 +30,6 @@ const releaseRuleWithScopeFilter = ({ type, release }, projectScope) => [
     type,
     release,
   },
-  {
-    breaking: true,
-    release: 'major',
-  },
 ];
 
 const releaseByTypeWithScopeFilter = (release, types, projectScope) =>
@@ -39,8 +43,8 @@ const releaseByTypeWithScopeFilter = (release, types, projectScope) =>
 
 const releaseTypes = {
   minor: ['feat'],
-  patch: ['build', 'docs', 'fix', 'perf', 'refactor'],
-  none: ['chore', 'ci', 'revert', 'test'],
+  patch: ['fix', 'build', 'refactor', 'perf'],
+  none: ['docs','chore', 'ci', 'test', 'revert'],
 };
 
 function createReleaseRulesWithScopeFilter(projectScope) {

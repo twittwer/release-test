@@ -55,17 +55,17 @@ async function insertVersions(packageRoot: string) {
     resolvedPackageRoot,
     'src',
     'utils',
-    'versions.js',
+    'VERSIONS.js',
   );
 
+  if (!existsSync(versionsJsPath)) {
+    console.info(`No version utility found: ${versionsJsPath}`);
+    return;
+  }
   if (!existsSync(packageJsonPath)) {
     throw new Error(
-      `No package.json found in package directory: ${resolvedPackageRoot}`,
+      `No package.json found in directory: ${resolvedPackageRoot}`,
     );
-  }
-  if (!existsSync(versionsJsPath)) {
-    console.info(`No version number utility file found: ${versionsJsPath}`);
-    return;
   }
 
   const packageJson = await import(packageJsonPath);
