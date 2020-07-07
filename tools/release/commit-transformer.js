@@ -90,13 +90,14 @@ function createCommitTransformerWithScopeFilter(projectScope) {
       return;
     }
 
-    console.log(commit);
+    // console.log(commit);
 
     mapToTitleGroup(commit);
-    // checkForBreakingNote(commit);
+    //checkForBreakingNote(commit);
     addShortHash(commit);
 
-    console.log(commit);
+    const { message, type, scope, subject, body, footer, notes } = commit;
+    console.log({ message, type, scope, subject, body, footer, notes });
 
     addIssueLinksInSubject(commit, context);
     addUserLinksInSubject(commit, context);

@@ -43,7 +43,7 @@ function createReleaseConfigWithScopeFilter({
           preset: 'angular',
           releaseRules: createReleaseRulesWithScopeFilter(projectScope),
           parserOpts: {
-            noteKeywords: ['BREAKING', 'BREAKING CHANGE', 'BREAKING CHANGES'],
+            noteKeywords: ['BREAKING'],
           },
         },
       ],
