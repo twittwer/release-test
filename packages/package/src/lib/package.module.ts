@@ -4,4 +4,6 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   imports: [CommonModule],
 })
-export class PackageModule {}
+export class PackageModule {
+  forRoot() {}
+}
