@@ -47,9 +47,10 @@ function createReleaseConfigWithScopeFilter({
       '@semantic-release/release-notes-generator',
       ['@semantic-release/changelog', { changelogFile }],
       ['@semantic-release/github', (() => {
-        const assetsGlob = `${relativeBuildOutput}/**/*`
-        console.log('--->>>', assetsGlob);
-        return ({ assets: false });
+        // const assetsGlob = `${relativeBuildOutput}/**/*`
+        const assetsGlob = relativeBuildOutput;
+        console.log('--->>> assetsGlob:', assetsGlob);
+        return ({ assets: [] });
       })()],
       // ['@semantic-release/npm', { pkgRoot: relativeBuildOutput }],
       [
