@@ -1,3 +1,9 @@
+## [2.0.7](https://github.com/twittwer/release-test/compare/package/v2.0.6...package/v2.0.7) (2020-07-08)
+
+### Build System
+
+- foxes ([a1043c8](https://github.com/twittwer/release-test/commit/a1043c8436b03f2e7eefa29d1a42bb9b83658fbf))
+
 ## [2.0.6](https://github.com/twittwer/release-test/compare/package/v2.0.5...package/v2.0.6) (2020-07-08)
 
 ### Build System
