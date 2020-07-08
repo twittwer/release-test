@@ -29,6 +29,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
+    "lint:commit": "commitlint --from master",
+    "commit": "git-cz",
     "prerelease": "nx affected:build --all",
     "release": "nx affected --target release --all",
     "prerelease:local": "nx affected:build --all",
