@@ -27,9 +27,6 @@ function createReleaseConfigWithScopeFilter({
   projectRoot,
   buildOutput,
 }) {
-  projectRoot = projectRoot || `libs/${projectScope}`;
-  buildOutput = buildOutput || `dist/libs/${projectScope}`;
-
   const relativeWorkspaceRoot = buildReversePath(projectRoot);
   const relativeBuildOutput = `${relativeWorkspaceRoot}/${buildOutput}`;
 
@@ -49,7 +46,10 @@ function createReleaseConfigWithScopeFilter({
       ],
       '@semantic-release/release-notes-generator',
       ['@semantic-release/changelog', { changelogFile }],
-      ['@semantic-release/github', { assets: [] }],
+      ['@semantic-release/github', (() => {
+        console.log('--->>>', relativeBuildOutput);
+        return ({ assets: relativeBuildOutput + '/**' });
+      })()],
       // ['@semantic-release/npm', { pkgRoot: relativeBuildOutput }],
       [
         '@semantic-release/exec',

@@ -7,6 +7,7 @@
     "url": "https://github.com/twittwer/release-test.git"
   },
   "scripts": {
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
     "start": "nx serve",
     "build": "nx build",
@@ -29,8 +30,9 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "prerelease": "nx affected:build --all",
-    "release": "nx affected --target release --configuration local --all",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+    "release": "nx affected --target release --all",
+    "prerelease:local": "nx affected:build --all",
+    "release:local": "nx affected --target release --configuration local --all"
   },
   "private": true,
   "dependencies": {
