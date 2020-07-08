@@ -1,3 +1,9 @@
+## [2.0.6](https://github.com/twittwer/release-test/compare/package/v2.0.5...package/v2.0.6) (2020-07-08)
+
+### Build System
+
+- foo ([df2a750](https://github.com/twittwer/release-test/commit/df2a7507d19e89fd3d694a05b25bafc89e8af682))
+
 ## [2.0.5](https://github.com/twittwer/release-test/compare/package/v2.0.4...package/v2.0.5) (2020-07-08)
 
 ### Build System
