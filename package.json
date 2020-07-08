@@ -34,6 +34,16 @@
     "prerelease:local": "nx affected:build --all",
     "release:local": "nx affected --target release --configuration local --all"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/prompt"
+    }
+  },
   "private": true,
   "dependencies": {
     "tslib": "^1.10.0",
@@ -67,9 +77,11 @@
     "@types/jest": "25.1.4",
     "@types/node": "~8.9.4",
     "codelyzer": "~5.0.1",
+    "commitizen": "^4.1.2",
     "cypress": "^4.1.0",
     "dotenv": "6.2.0",
     "eslint": "6.8.0",
+    "husky": "^4.2.5",
     "jest": "25.2.3",
     "jest-preset-angular": "8.1.2",
     "ng-packagr": "^9.0.0",

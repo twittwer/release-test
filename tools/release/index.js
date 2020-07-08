@@ -32,6 +32,7 @@ function createReleaseConfigWithScopeFilter({
 
   const changelogFile = 'CHANGELOG.md';
   const releaseCommit = `chore(${projectScope}): release \${nextRelease.version}\n\n\${nextRelease.notes}\n\n***\n[skip ci]`;
+
   return {
     plugins: [
       [
@@ -40,14 +41,14 @@ function createReleaseConfigWithScopeFilter({
           preset: 'angular',
           releaseRules: createReleaseRulesWithScopeFilter(projectScope),
           parserOpts: {
-            noteKeywords: ['BREAKING', 'BREAKING CHANGE', 'BREAKING CHANGES'],
+            noteKeywords: ['BREAKING CHANGE'],
           },
         },
       ],
       '@semantic-release/release-notes-generator',
       ['@semantic-release/changelog', { changelogFile }],
       '@semantic-release/github',
-      // ['@semantic-release/npm', { pkgRoot: relativeBuildOutput }],
+      ['@semantic-release/npm', { pkgRoot: relativeBuildOutput }],
       [
         '@semantic-release/exec',
         {
@@ -71,12 +72,6 @@ function createReleaseConfigWithScopeFilter({
       transform: createCommitTransformerWithScopeFilter(projectScope),
     },
     tagFormat: `${projectScope}/v\${version}`,
-    branches: [
-      'master',
-      'next',
-      { name: 'beta', prerelease: true },
-      { name: 'alpha', prerelease: true },
-    ],
   };
 }
 

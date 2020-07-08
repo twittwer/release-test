@@ -12,7 +12,7 @@
     module.exports = createReleaseConfigWithScopeFilter({
       projectScope: '<project-name>',
       projectRoot: '<project/root/directory>',
-      buildOutput: '<project/dist/directory',
+      buildOutput: '<project/dist/directory>',
     });
     ```
 3. Configure a `release` architect for the project (`workspace.json`/`angular.json`)
