@@ -1,3 +1,9 @@
+## [2.0.5](https://github.com/twittwer/release-test/compare/package/v2.0.4...package/v2.0.5) (2020-07-08)
+
+### Build System
+
+- test ([2546ed0](https://github.com/twittwer/release-test/commit/2546ed0470c1ae457645915ae15fb03377596ecb))
+
 ## [2.0.4](https://github.com/twittwer/release-test/compare/package/v2.0.3...package/v2.0.4) (2020-07-08)
 
 ### Build System
